@@ -1,3 +1,3 @@
 <p>Contador: {{ contagem }}</p>
-<button (click)="aumentarContagem()">[+] </button>
-<button (click)="diminuirContagem()"> [-]</button>
+<button (click)="aumentarContagem()"> [+] </button>
+<button [disabled]="contagem === 0" (click)="diminuirContagem()"> [-] </button>

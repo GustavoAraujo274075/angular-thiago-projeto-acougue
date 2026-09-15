@@ -15,6 +15,6 @@ export class Ex6 {
   diminuirContagem(){
     if (this.contagem > 0){
       this.contagem--
-    }  
+    }    
   }
 }
