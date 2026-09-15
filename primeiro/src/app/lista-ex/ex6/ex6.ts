@@ -13,6 +13,8 @@ export class Ex6 {
     this.contagem++
   }
   diminuirContagem(){
-    this.contagem--
+    if (this.contagem > 0){
+      this.contagem--
+    }  
   }
 }
