@@ -1,10 +1,13 @@
-<input [(ngModel)]="user" placeholder="Digite o usuario!">
-<input [(ngModel)]="senha" placeholder="Digite a senha!">
-<button (click)="cadastrado = true">Cadastrar</button>
+<input [(ngModel)]="user" placeholder="Digite o usuario para cadastro!">
+<input [(ngModel)]="senha" type="password" placeholder="Digite a senha para cadastro!">
+<button [disabled]="!user || !senha" (click)="cadastrado = true">Cadastrar</button>
 <p></p>
 
+
 <input [(ngModel)]="userLogin" placeholder="Digite o usuario!">
-<input [(ngModel)]="senhaLogin" placeholder="Digite a senha!">
-<button [disabled]="!usuario || !senha" (click)="entrar()">Entrar</button>
+<input [(ngModel)]="senhaLogin" type="password" placeholder="Digite a senha!">
+
+<button [disabled]="!cadastrado || !userLogin || !senhaLogin" (click)="checarLogin()">Entrar</button>
+
 <p>{{ mensagem }}</p>
 <p></p>
