@@ -1,1 +1,11 @@
-<p>ex11 works!</p>
+
+
+<p>Item: Notebook</p>
+<p>Quantidade: {{ quantidade }} </p>
+<button [disabled]="quantidade === 1 " (click)="diminuirQnt()">[-]</button>
+<button (click)="aumentarQnt()">[+]</button>
+<p>Valor UN: {{ valor | currency: "BRL" }}</p>
+
+<p>Total da compra: {{ total | currency: "BRL" }} </p>
+
+<button (click)="confirmacaoCarrinho()">[Adicionar ao carrinho]</button>
