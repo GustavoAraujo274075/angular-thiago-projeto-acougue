@@ -1,0 +1,8 @@
+<p>Realizar Matrícula</p>
+<input [(ngModel)]="nomeAluno" placeholder="Digite seu nome aqui!">
+<p>Quantidade de Disciplinas {{ qntDisciplinas }}</p>
+<button [disabled]="qntDisciplinas === 0 " (click)="diminuirQnt()">[-]</button>
+<button (click)="aumentarQnt()">[+]</button>
+
+
+<button [disabled]="!nomeAluno || qntDisciplinas === 0"(click)="fazerMatricula()">[Realizar Matrícula]</button>
