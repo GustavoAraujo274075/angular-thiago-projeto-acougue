@@ -1,1 +1,7 @@
-<p>ex9 works!</p>
+<input [(ngModel)]="item" placeholder ="Digite o item aqui!">
+<p> ESTOQUE </p>
+<p> Item: {{ item }} </p>
+<p></p>
+<p>Estoque: {{ estoque }}</p>
+<button (click)="aumentarEstoque()"> [+] </button>
+<button [disabled]="estoque === 0" (click)="diminuirEstoque()"> [-] </button>
