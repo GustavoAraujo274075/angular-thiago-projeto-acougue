@@ -1,0 +1,8 @@
+<input [(ngModel)]="item" placeholder ="Digite o item aqui!">
+<input [(ngModel)]="preco" placeholder ="Digite o preco aqui!">
+<input [(ngModel)]="quantidade" placeholder ="Digite a quantidade aqui!">
+<p> Lista de compras </p>
+<p> Item: {{ item }} </p>
+<p> Quantidade: {{ quantidade }} </p>
+<p> Preço Unitário: {{ preco | currency: 'BRL' }} </p>
+<p> Total: {{ quantidade * preco | currency: 'BRL' }} </p>
