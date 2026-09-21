@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { CommonModule } from '@angular/core';
 const routes: Routes = [
   { path: '', redirectTo: 'lista-ex/ex1', pathMatch: 'full' },
   {
