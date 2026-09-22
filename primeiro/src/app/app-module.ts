@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { App } from './app';
 import { AppRoutingModule } from './app-routing-module';
+import { BaseModule } from './base/base-module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { AppRoutingModule } from './app-routing-module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BaseModule
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
