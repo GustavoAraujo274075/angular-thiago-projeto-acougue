@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ListaEx2RoutingModule } from './lista-ex-2-routing-module';
+import { Ex1 } from './ex1/ex1';
+import { Ex2 } from './ex2/ex2';
 import { Ex3 } from './ex3/ex3';
 import { Ex4 } from './ex4/ex4';
 import { Ex5 } from './ex5/ex5';
@@ -14,8 +16,6 @@ import { Ex11 } from './ex11/ex11';
 import { Ex12 } from './ex12/ex12';
 import { Ex13 } from './ex13/ex13';
 import { Ex14 } from './ex14/ex14';
-import { Ex1 } from './ex1/ex1';
-import { Ex2 } from './ex2/ex2';
 
 @NgModule({
   declarations: [Ex3, Ex4, Ex5, Ex6, Ex7, Ex8, Ex9, Ex10, Ex11, Ex12, Ex13, Ex14, Ex1, Ex2],

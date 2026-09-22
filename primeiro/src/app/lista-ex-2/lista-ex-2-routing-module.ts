@@ -38,3 +38,6 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class ListaEx2RoutingModule {}
+
+
+
