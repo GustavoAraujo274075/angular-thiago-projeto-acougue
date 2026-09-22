@@ -1,1 +1,6 @@
-<p>ex2 works!</p>
+<button (click)="alterarTextBotao()">{{ textoBotao }}</button>
+<div *ngIf="usuarioLogado; else naoAuth "><p>{{ mensagem }}</p></div>
+
+<ng-template #naoAuth>
+<p>Acesso não autorizado</p>
+</ng-template>
