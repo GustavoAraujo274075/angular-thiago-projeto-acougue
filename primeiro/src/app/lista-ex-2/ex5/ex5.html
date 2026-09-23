@@ -1,1 +1,7 @@
-<p>ex5 works!</p>
+<ul>
+    <li *ngFor="let pessoa of pessoas; let i = index; let primeiro = first; let ultimo = last">
+        Id: {{ pessoa.id }} | Posição: {{ i+1 }} | Nome: {{ pessoa.nome }} <br>
+        <span *ngIf="primeiro">{{ pessoa.nome }} é o(a) primeiro(a) da lista</span>
+        <span *ngIf="ultimo">{{ pessoa.nome }} é o(a) último(a) da lista</span>
+    </li>
+</ul>
