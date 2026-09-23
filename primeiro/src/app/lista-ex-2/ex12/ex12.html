@@ -1,1 +1,35 @@
-<p>ex12 works!</p>
+<p>Lista de Produtos:</p>
+
+<ng-container *ngFor="let produto of produtos; let i = index">
+    <div>
+        {{ produto.nome }} - Quantidade: {{ produto.quantidade }}
+
+        <button (click)="excluirProduto(i)">
+            Excluir
+        </button>
+    </div>
+</ng-container>
+
+<br>
+
+<input
+    [(ngModel)]="nomeNovoProduto"
+    placeholder="Digite aqui o nome do produto">
+<br>
+
+<input
+    min="0"
+    type="number"
+    [(ngModel)]="quantidadeNovoProduto"
+    placeholder="Digite aqui o estoque do produto">
+<br>
+
+<button
+    [disabled]="!nomeNovoProduto || quantidadeNovoProduto < 0"
+    (click)="cadastrarProduto()">
+    Cadastrar
+</button>
+
+<p *ngIf="!nomeNovoProduto || quantidadeNovoProduto < 0">
+    Preencha o nome e informe uma quantidade igual ou maior que zero.
+</p>
