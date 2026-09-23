@@ -1,1 +1,8 @@
-<p>ex11 works!</p>
+<button (click)="somenteDisponiveis = false">Lista toda</button>
+<button (click)="somenteDisponiveis = true">Somente disponíveis</button>
+
+<ng-container *ngFor="let produto of produtos">
+    <div *ngIf="!somenteDisponiveis || produto.quantidade > 0">
+        {{ produto.nome }}
+    </div>
+</ng-container>
