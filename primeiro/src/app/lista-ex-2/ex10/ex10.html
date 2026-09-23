@@ -1,1 +1,25 @@
-<p>ex10 works!</p>
+<ng-container *ngFor="let produto of produtos">
+
+    <div class="produto" [ngClass]="{ 'promocao': produto.promocao }">
+
+        <p>
+            Produto: {{ produto.nome }} <br>
+            Quantidade: {{ produto.quantidade }} <br>
+
+            Preço:
+            <span [ngStyle]="{'color': produto.promocao ? 'red' : 'black'}">
+                {{ produto.preco | currency:'BRL' }}
+            </span>
+        </p>
+
+        <p *ngIf="produto.promocao">
+            Produto em promoção!
+        </p>
+
+        <button (click)="alternarPromocao(produto)">
+            Alternar promoção
+        </button>
+
+    </div>
+
+</ng-container>
