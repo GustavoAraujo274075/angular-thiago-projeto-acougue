@@ -1,1 +1,3 @@
-<p>ex8 works!</p>
+<ng-container *ngFor="let produto of produtos; let i = index;">
+    <p>Produto: {{ produto.nome }} <br> - Posição: {{ i }} <br> - Preço UN: {{ produto.preco | currency:'BRL'}} <br> - Quantidade: {{ produto.quantidade }} <br> - Total em estoque: {{ produto.preco*produto.quantidade | currency:'BRL' }}</p>
+</ng-container>
