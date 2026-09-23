@@ -1,1 +1,13 @@
-<p>ex4 works!</p>
+<p>{{ nomeProduto }}</p>
+
+<p *ngIf="quantidadeEstoque > 0; else semEstoque">
+  Estoque: {{ quantidadeEstoque }} <br>
+  Produto disponível!
+</p>
+
+<ng-template #semEstoque>
+  <p>Sem produtos disponíveis!</p>
+</ng-template>
+
+<button (click)="aumentarQuantidade()">[+]</button>
+<button (click)="diminuirQuantidade()" [disabled]="quantidadeEstoque === 0"  >[-]</button>
