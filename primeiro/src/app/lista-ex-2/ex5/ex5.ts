@@ -7,16 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './ex5.scss',
 })
 export class Ex5 {
-
-  mostrarProdutos:boolean = true;
-
+  
   pessoas = [
     { id: 1, nome: 'Carlos'},
     { id: 2, nome: 'Gustavo'}, 
     { id: 3, nome: 'Gabrielly'}]
-
-  alternarProdutos(){
-    this.mostrarProdutos = !this.mostrarProdutos;
-  }
 
 }

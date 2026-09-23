@@ -1,1 +1,15 @@
-<p>ex6 works!</p>
+<ng-container *ngIf="pessoas.length > 0; else listaVazia">
+    <div *ngFor="let pessoa of pessoas">
+        {{ pessoa.nome }}
+    </div>
+</ng-container>
+
+<ng-template #listaVazia>
+    <p>Nenhum nome cadastrado</p>
+</ng-template>
+
+<p>Quantidade total: {{ pessoas.length }}</p>
+
+<button (click)="limparLista()">Limpar lista</button>
+<button (click)="removerUltimo()">Remover último item</button>
+<button (click)="restaurarLista()">Restaurar lista</button>
