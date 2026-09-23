@@ -1,1 +1,12 @@
-<p>ex7 works!</p>
+<ng-container *ngIf="disciplinas.length > 0">
+
+    <div
+        *ngFor="let disciplina of disciplinas; let par = even; let impar = odd; let primeiro = first; let ultimo = last"
+
+        [ngClass]="{'par': par, 'impar': impar, 'primeiro': primeiro, 'ultimo': ultimo}">
+
+        {{ disciplina.nome }}
+
+    </div>
+
+</ng-container>
