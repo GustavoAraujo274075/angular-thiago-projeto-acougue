@@ -1,1 +1,10 @@
-<p>ex9 works!</p>
+<ng-container *ngFor="let produto of produtos ">
+    
+    <div [ngClass]="{baixo: produto.quantidade >= 1 && produto.quantidade <= 5, zero: produto.quantidade === 0, disponivel: produto.quantidade > 5}">
+        <p *ngIf="produto.quantidade >= 1 && produto.quantidade <= 5">{{produto.nome}} está com o Estoque Baixo!</p>
+        <p *ngIf="produto.quantidade > 5 ">{{produto.nome}} está com o Estoque Disponível!</p>
+        <p *ngIf="produto.quantidade === 0 ">{{produto.nome}} está Sem Estoque!</p>
+
+    </div>
+
+</ng-container>
