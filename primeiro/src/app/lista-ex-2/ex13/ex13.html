@@ -1,1 +1,33 @@
-<p>ex13 works!</p>
+<p *ngIf="tarefas.length === 0">
+  Não existem tarefas cadastradas.
+</p>
+
+<ng-container *ngFor="let tarefa of tarefas">
+
+  <div class="card-tarefa"[ngClass]="{'baixa': tarefa.prioridade === 'baixa','media': tarefa.prioridade === 'média','alta': tarefa.prioridade === 'alta','concluida': tarefa.concluida}">
+    <p><strong>Tarefa:</strong> {{ tarefa.titulo }} -|-<strong>Responsável:</strong> {{ tarefa.responsavel }}</p>
+    <p *ngIf="tarefa.concluida"><strong>Status:</strong> Concluída</p>
+    <p *ngIf="!tarefa.concluida"> <strong>Status:</strong> Pendente</p>
+
+    <button (click)="tarefa.concluida = !tarefa.concluida; verificarTarefas()">Mudar Status</button>
+  </div>
+
+</ng-container>
+
+<p class="total">
+  Total de tarefas: {{ tarefas.length }}
+</p>
+
+<p>
+  Tarefas concluídas: 
+  {{ tarefas.filter(tarefa => tarefa.concluida).length }}
+</p>
+
+<p>
+  Tarefas pendentes: 
+  {{ tarefas.filter(tarefa => !tarefa.concluida).length }}
+</p>
+
+<p *ngIf="todasConcluidas">
+  Não existem mais tarefas pendentes!
+</p>
