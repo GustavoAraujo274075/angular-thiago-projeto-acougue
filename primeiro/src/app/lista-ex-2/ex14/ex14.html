@@ -1,1 +1,131 @@
-<p>ex14 works!</p>
+
+@for (produto of produtos; track produto.id) {
+
+  <div>
+    <p>
+      <strong>Produto:</strong> {{ produto.nome }} <br>
+      <strong>Quantidade:</strong> {{ produto.quantidade }} <br>
+
+      <span
+        [ngStyle]="{
+          'color': produto.promocao ? 'red' : 'black',
+          'font-weight': produto.promocao ? 'bold' : 'normal'
+        }"
+      >
+        <strong>Preço:</strong> {{ produto.preco | currency:'BRL' }}
+      </span>
+    </p>
+
+    @if (produto.promocao) {
+      <p>
+        <strong>Produto em promoção</strong>
+      </p>
+    }
+
+    <button (click)="produto.promocao = !produto.promocao">
+      Alternar promoção
+    </button>
+  </div>
+
+} @empty {
+  <p>Não existem produtos cadastrados.</p>
+}
+
+
+<hr>
+
+
+<button (click)="somenteDisponiveis = !somenteDisponiveis">
+  @if (somenteDisponiveis) {
+    Exibir todos
+  } @else {
+    Exibir somente disponíveis
+  }
+</button>
+
+@for (produto of produtos; track produto.id) {
+
+  @if (!somenteDisponiveis || produto.quantidade > 0) {
+
+    <div>
+      <p>
+        <strong>Produto:</strong> {{ produto.nome }} <br>
+        <strong>Quantidade:</strong> {{ produto.quantidade }} <br>
+        <strong>Preço:</strong> {{ produto.preco | currency:'BRL' }}
+      </p>
+    </div>
+
+  }
+
+} @empty {
+  <p>Não existem produtos cadastrados.</p>
+}
+
+
+<hr>
+
+
+@for (tarefa of tarefas; track tarefa.id) {
+
+  <div
+    class="card-tarefa"
+    [ngClass]="{
+      'baixa': tarefa.prioridade === 'baixa',
+      'media': tarefa.prioridade === 'média',
+      'alta': tarefa.prioridade === 'alta',
+      'concluida': tarefa.concluida
+    }"
+  >
+
+    <p>
+      <strong>Tarefa:</strong> {{ tarefa.titulo }}
+    </p>
+
+    <p>
+      <strong>Responsável:</strong> {{ tarefa.responsavel }}
+    </p>
+
+    <p>
+      <strong>Prioridade:</strong> {{ tarefa.prioridade }}
+    </p>
+
+    @if (tarefa.concluida) {
+      <p>
+        <strong>Status:</strong> Concluída
+      </p>
+    } @else {
+      <p>
+        <strong>Status:</strong> Pendente
+      </p>
+    }
+
+    <button (click)="tarefa.concluida = !tarefa.concluida">
+      Mudar Status
+    </button>
+
+  </div>
+
+} @empty {
+  <p>Não existem tarefas cadastradas.</p>
+}
+
+<p>
+  <strong>Total de tarefas:</strong> {{ tarefas.length }}
+</p>
+
+
+<hr>
+
+
+<p>
+  <strong>1.</strong>
+  Na sintaxe moderna, utilizamos &#64;if e &#64;else diretamente no HTML,
+  substituindo o *ngIf e o ng-template utilizados na sintaxe tradicional.
+</p>
+
+<p>
+  <strong>2.</strong>
+  O &#64;for substitui o *ngFor e utiliza track para identificar cada
+  elemento da lista. A sintaxe moderna também possui o &#64;empty,
+  que permite exibir uma mensagem quando a lista estiver vazia.
+</p>
