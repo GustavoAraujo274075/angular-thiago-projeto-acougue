@@ -17,9 +17,26 @@ import { Ex11 } from './ex11/ex11';
 import { Ex12 } from './ex12/ex12';
 import { Ex13 } from './ex13/ex13';
 import { Ex14 } from './ex14/ex14';
+import { DesafioFinal } from './desafio-final/desafio-final';
 
 @NgModule({
-  declarations: [Ex3, Ex4, Ex5, Ex6, Ex7, Ex8, Ex9, Ex10, Ex11, Ex12, Ex13, Ex14, Ex1, Ex2],
+  declarations: [
+    Ex3,
+    Ex4,
+    Ex5,
+    Ex6,
+    Ex7,
+    Ex8,
+    Ex9,
+    Ex10,
+    Ex11,
+    Ex12,
+    Ex13,
+    Ex14,
+    Ex1,
+    Ex2,
+    DesafioFinal,
+  ],
   imports: [CommonModule, ListaEx2RoutingModule, FormsModule],
 })
 export class ListaEx2Module {}

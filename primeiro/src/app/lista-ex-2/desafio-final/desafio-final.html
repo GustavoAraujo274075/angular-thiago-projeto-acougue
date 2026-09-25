@@ -1,0 +1,74 @@
+<button (click)="mostrarConcluidos = !mostrarConcluidos">
+  @if (mostrarConcluidos) {
+    Ocultar projetos concluídos
+  } @else {
+    Mostrar projetos concluídos
+  }
+</button>
+
+<hr>
+
+@for (projeto of projetos; track projeto.id; let posicao = $index) {
+
+  @if (mostrarConcluidos || projeto.status !== 'Feito') {
+
+    <div [ngClass]="{
+      'feito': projeto.status === 'Feito',
+      'pendente': projeto.status === 'Pendente',
+      'acimaSete': projeto.nota !== null && projeto.nota >= 7
+    }">
+
+      <p>
+        Posição: {{ posicao + 1 }} |
+        Projeto: {{ projeto.titulo }} |
+        Equipe: {{ projeto.equipe }} |
+
+        @if (projeto.nota !== null) {
+          Nota: {{ projeto.nota }} |
+        } @else {
+          Nota: não definida |
+        }
+
+        Status: {{ projeto.status }}
+      </p>
+
+      @if (projeto.entregue) {
+        <p>Projeto entregue!</p>
+      }
+
+      @if (projeto.nota === null) {
+        <p>Nota ainda não definida!</p>
+      }
+
+      @if (projeto.nota !== null && projeto.nota < 6) {
+        <p class="nota-baixa">
+          Projeto com nota inferior a 6!
+        </p>
+      }
+
+      @if (projeto.nota !== null && projeto.nota >= 7) {
+        <p>
+          Projeto com nota igual ou superior a 7!
+        </p>
+      }
+
+      <button (click)="alterarStatus(projeto)">
+        Alterar Status
+      </button>
+
+    </div>
+
+    <hr>
+  }
+
+} @empty {
+  <p>Não existem projetos cadastrados.</p>
+}
+
+<p>
+  Projetos Totais: {{ projetos.length }}
+</p>
+
+<p>
+  Projetos Concluídos: {{ contarConcluidos() }}
+</p>
